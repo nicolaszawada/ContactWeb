@@ -1,0 +1,40 @@
+﻿@model ContactWeb.Models.ContactDetailViewModel
+
+<label asp-for="FullName"></label>
+<p>@Model.FullName</p>
+
+<label asp-for="Address"></label>
+<p>@Model.Address</p>
+
+<label asp-for="Birthdate"></label>
+<p>@CalculateAge(Model.Birthdate) jaar oud!</p>
+
+<label asp-for="Email"></label>
+<p>@Model.Email</p>
+
+<label asp-for="PhoneNumber"></label>
+<p>@Model.PhoneNumber</p>
+
+<label asp-for="Category"></label>
+<p>@Model.Category</p>
+
+<label asp-for="PhotoUrl"></label>
+<br />
+<img src="@Model.PhotoUrl" class="photo-url"/>
+
+@functions{
+    int CalculateAge(DateTime birthDate)
+    {
+        return (int)((DateTime.Now - birthDate).Days / 365.25);
+    }
+}
+
+<style>
+    label {
+        font-weight:bold;
+    }
+
+    .photo-url {
+        max-width: 400px;
+    }
+</style>

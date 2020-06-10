@@ -1,0 +1,36 @@
+﻿@model IEnumerable<ContactWeb.Models.ContactListViewModel>
+
+<h1>Contactenlijst</h1>
+
+@if (Model == null || !Model.Any())
+{
+    <strong>Geen contacten!</strong>
+}
+else
+{
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    Name
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (ContactListViewModel contact in Model)
+            {
+                <tr>
+                    <td>
+                        @contact.FullName
+                    </td>
+                    <td>
+                        <a asp-controller="Contact" asp-action="Detail" asp-route-id="@contact.Id">Detail</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+<a asp-controller="Contact" asp-action="Create">Create</a>
