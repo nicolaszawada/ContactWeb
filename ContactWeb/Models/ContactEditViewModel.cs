@@ -1,14 +1,13 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace ContactWeb.Models
 {
-    public class ContactCreateViewModel
+    public class ContactEditViewModel
     {
         [DisplayName("First name*")]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Verplicht")]
@@ -19,6 +18,8 @@ namespace ContactWeb.Models
         [Required(AllowEmptyStrings = false, ErrorMessage = "Verplicht")]
         [MaxLength(25, ErrorMessage = "Achternaam mag slechts 25 karakters lang zijn")]
         public string LastName { get; set; }
+
+        [DisplayName("Birthdate")]
         public DateTime Birthdate { get; set; }
 
         [DisplayName("Email Address")]
@@ -45,5 +46,7 @@ namespace ContactWeb.Models
 
         [DisplayName("Photo")]
         public IFormFile Photo { get; set; }
+
+        public string PhotoUrl { get; set; }
     }
 }

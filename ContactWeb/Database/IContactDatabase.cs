@@ -65,6 +65,7 @@ namespace ContactWeb.Database
                 contact.Category = updatedContact.Category;
                 contact.Email = updatedContact.Email;
                 contact.PhoneNumber = updatedContact.PhoneNumber;
+                contact.PhotoUrl = updatedContact.PhotoUrl;
             }
         }
     }

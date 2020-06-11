@@ -15,19 +15,27 @@ else
                     Name
                 </th>
                 <th></th>
+                <th></th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
             @foreach (ContactListViewModel contact in Model)
             {
-                <tr>
-                    <td>
-                        @contact.FullName
-                    </td>
-                    <td>
-                        <a asp-controller="Contact" asp-action="Detail" asp-route-id="@contact.Id">Detail</a>
-                    </td>
-                </tr>
+            <tr>
+                <td>
+                    @contact.FullName
+                </td>
+                <td>
+                    <a asp-controller="Contact" asp-action="Detail" asp-route-id="@contact.Id">Detail</a>
+                </td>
+                <td>
+                    <a asp-controller="Contact" asp-action="Edit" asp-route-id="@contact.Id">Edit</a>
+                </td>
+                <td>
+                    <a asp-controller="Contact" asp-action="Delete" asp-route-id="@contact.Id">Delete</a>
+                </td>
+            </tr>
             }
         </tbody>
     </table>

@@ -1,0 +1,9 @@
+﻿@model ContactWeb.Models.ContactDeleteViewModel
+
+<p>Do you really want to delete your @Model.Category @Model.FullName?</p>
+
+<form asp-controller="Contact" asp-action="ConfirmDelete" asp-route-id="@Model.Id" method="post">
+    <button class="btn btn-danger">Yes</button>
+</form>
+
+<a asp-controller="Contact" asp-action="Index">Back to list</a>
